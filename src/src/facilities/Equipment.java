@@ -1,22 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package facilities;
 
-/**
- *
- * @author Lenovo - LOQ
- */
+
 public class Equipment {
     private final String id;
     private final String name;
-    private boolean damaged;
+    private boolean operational;
 
     public Equipment(String id, String name) {
         this.id = id;
         this.name = name;
-        this.damaged = false;
+        this.operational = true;
     }
 
     public String getId() {
@@ -27,16 +21,22 @@ public class Equipment {
         return name;
     }
 
-    public boolean isDamaged() {
-        return damaged;
+    public boolean isOperational() {
+        return operational;
     }
 
-    public void setDamaged(boolean damaged) {
-        this.damaged = damaged;
+   
+    public void damaged() {
+        this.operational = false;
+    }
+
+    
+    public void repair() {
+        this.operational = true;
     }
 
     @Override
     public String toString() {
-        return name + " [ID: " + id + ", Damaged: " + damaged + "]";
+        return name + " [ID: " + id + ", Operational: " + operational + "]";
     }
 }

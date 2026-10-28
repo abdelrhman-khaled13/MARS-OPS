@@ -1,19 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package facilities;
 
-/**
- *
- * @author Lenovo - LOQ
- */
+
 public class LifeSupportSystem {
     private boolean operational;
+    private int damageLevel;             
     private double filtrationEfficiency; 
 
     public LifeSupportSystem() {
         this.operational = true;
+        this.damageLevel = 0;
         this.filtrationEfficiency = 0.98;
     }
 
@@ -21,8 +17,8 @@ public class LifeSupportSystem {
         return operational;
     }
 
-    public void setOperational(boolean operational) {
-        this.operational = operational;
+    public int getDamageLevel() {
+        return damageLevel;
     }
 
     public double getFiltrationEfficiency() {
@@ -30,11 +26,27 @@ public class LifeSupportSystem {
     }
 
     public void setFiltrationEfficiency(double filtrationEfficiency) {
-        this.filtrationEfficiency = filtrationEfficiency;
+        this.filtrationEfficiency = Math.max(0.0, Math.min(1.0, filtrationEfficiency));
+    }
+
+    
+    public void damaged(int severity) {
+        this.damageLevel = Math.min(100, this.damageLevel + severity);
+        if (this.damageLevel >= 100) {
+            this.operational = false;
+        }
+    }
+
+    
+    public void repair() {
+        this.damageLevel = 0;
+        this.operational = true;
     }
 
     @Override
     public String toString() {
-        return "LifeSupportSystem [Operational: " + operational + ", Efficiency: " + (filtrationEfficiency * 100) + "%]";
+        return "LifeSupportSystem [Operational: " + operational
+                + ", Damage: " + damageLevel
+                + ", Efficiency: " + (filtrationEfficiency * 100) + "%]";
     }
 }
