@@ -196,7 +196,7 @@ public abstract class Mission implements EnvironmentSensitive {
                 return OperationResult.failure("Agent " + agent.getName() + " is no longer in usable condition.");
             }
             if (agent instanceof Robot) {
-                int battery = ((Robot) agent).getBatteryLevel();
+                int battery = ((Robot) agent).getBattery();
                 if (battery < batteryFloor) {
                     return OperationResult.failure("Insufficient battery: " + agent.getName()
                             + " has " + battery + " but needs at least " + batteryFloor + ".");
@@ -360,7 +360,7 @@ public abstract class Mission implements EnvironmentSensitive {
                 return false;
             }
             if (requiredSkill != null) {
-                return agent instanceof Human && ((Human) agent).hasSkill(requiredSkill);
+                return agent instanceof CrewMember && ((CrewMember) agent).hasSkill(requiredSkill);
             }
             return true;
         }
