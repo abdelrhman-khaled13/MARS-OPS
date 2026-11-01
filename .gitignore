@@ -44,3 +44,8 @@ Thumbs.db
 *.swp
 *.tmp
 .env
+
+out/
+
+*.iml
+*.pdf

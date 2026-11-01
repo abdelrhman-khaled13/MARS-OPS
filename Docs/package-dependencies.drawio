@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-31T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="package-dependencies" name="Package Dependencies">
+    <mxGraphModel dx="1900" dy="1350" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1350" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="p_common" value="&lt;b&gt;common/&lt;/b&gt;&lt;br&gt;shared types + interfaces
+(frozen)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="790" y="35" width="320" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_agents" value="&lt;b&gt;agents/&lt;/b&gt;&lt;br&gt;implements Responder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="270" width="300" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_facilities" value="&lt;b&gt;facilities/&lt;/b&gt;&lt;br&gt;facility / equipment types" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="430" y="270" width="300" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_environment" value="&lt;b&gt;environment/&lt;/b&gt;&lt;br&gt;conditions + environment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="790" y="270" width="300" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_resources" value="&lt;b&gt;resources/&lt;/b&gt;&lt;br&gt;ResourceManager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="270" width="300" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_missions" value="&lt;b&gt;missions/&lt;/b&gt;&lt;br&gt;missions + MissionManager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="430" y="560" width="330" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_emergencies" value="&lt;b&gt;emergencies/&lt;/b&gt;&lt;br&gt;depends on common only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="980" y="560" width="370" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_colony" value="&lt;b&gt;colony/&lt;/b&gt;&lt;br&gt;implements ColonyContext" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="650" y="850" width="420" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_Main" value="&lt;b&gt;Main/&lt;/b&gt;&lt;br&gt;depends on colony" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf3f9;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1110" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_agents" target="p_common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_facilities" target="p_common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_environment" target="p_common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_resources" target="p_common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_resources" target="p_facilities">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_missions" target="p_common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_missions" target="p_agents">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_missions" target="p_facilities">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_missions" target="p_environment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_missions" target="p_resources">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_emergencies" target="p_common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_colony" target="p_common">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_colony" target="p_agents">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_colony" target="p_facilities">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_colony" target="p_environment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_colony" target="p_resources">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_colony" target="p_missions">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_colony" target="p_emergencies">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pd18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6d8499;" edge="1" parent="1" source="p_Main" target="p_colony">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="package_note" value="Dashed open arrow: importing package → dependency. No dependency cycles. Emergency classes import only common/; all colony-facing emergency operations are supplied by ColonyContext." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8dc;strokeColor=#c9a227;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1240" width="1710" height="70" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-31T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="sequence---environmental-restriction-(dust-storm)" name="Sequence - Environmental Restriction (Dust Storm)">
+    <mxGraphModel dx="2200" dy="1500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="p0" value="Caller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="50" y="40" width="400" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life0" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="250" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="Environment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="470" y="40" width="400" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life1" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="670" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="MissionManager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="890" y="40" width="400" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life2" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="ExplorationMission" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="40" width="400" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life3" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1730" y="40" width="400" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life4" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="1930" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="a0" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="145" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b0" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="145" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m0" value="setCondition(DUST_STORM)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a0" target="b0">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="179" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="179" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="notifyListeners(DUST_STORM)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a1" target="b1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="213" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="213" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="reevaluateActiveMission()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a2" target="b2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="247" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="247" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="check(mission) [surface mission]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a3" target="b3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="281" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="281" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="evaluate(mission)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a4" target="b4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="315" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="315" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m5" value="failure(&quot;surface not allowed...&quot;)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a5" target="b5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="349" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b6" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="349" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m6" value="failActive(&quot;dust storm...&quot;)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a6" target="b6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a7" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="383" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b7" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1930" y="383" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m7" value="fail(reason)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a7" target="b7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a8" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="417" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b8" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1930" y="417" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m8" value="releaseAgents()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a8" target="b8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a9" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="451" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b9" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="451" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m9" value="submit(new mission)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a9" target="b9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a10" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="485" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b10" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="485" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m10" value="check(mission)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a10" target="b10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a11" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="519" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b11" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="519" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m11" value="check(mission)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a11" target="b11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a12" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="553" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b12" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="553" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m12" value="evaluate(mission)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a12" target="b12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a13" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="587" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b13" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="587" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m13" value="failure" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a13" target="b13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a14" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="621" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b14" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="621" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m14" value="reject(&quot;dust storm...&quot;)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a14" target="b14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a15" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="655" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b15" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="655" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m15" value="fail(reason)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a15" target="b15">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a16" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="689" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b16" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="689" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m16" value="failure" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a16" target="b16">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="n0" value="When an active mission requires surface access, the condition change reevaluates and fails it, then releases agents. A new surface mission is rejected with OperationResult.failure(reason)." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8dc;strokeColor=#c9a227;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1100" width="2060" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-31T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="use-case-diagram" name="Use Case Diagram">
+    <mxGraphModel dx="1900" dy="1300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="boundary" value="&lt;b&gt;MARS-OPS&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#34495e;align=center;verticalAlign=top;fontSize=20;spacingTop=14;" vertex="1" parent="1">
+          <mxGeometry x="400" y="50" width="1250" height="1120" as="geometry"/>
+        </mxCell>
+        <mxCell id="actor1" value="Colony Operator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="400" width="280" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="actor2" value="Emergency Operator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="820" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="manage_agents" value="(Manage crew members and robotic units)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="140" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="manage_facilities" value="(Manage facilities and equipment)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="140" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="monitor_resources" value="(Monitor resources)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="report" value="(Generate colony status report)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="280" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="submit" value="(Submit mission)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="440" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="assign" value="(Assign mission)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="440" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="execute" value="(Execute and monitor mission)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="590" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="advance" value="(Advance simulation time)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="590" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="monitor_env" value="(Monitor environmental conditions)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="740" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="trigger" value="(Trigger emergency)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="760" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="handle" value="(Handle emergency)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="900" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="inspect_m" value="(Inspect mission outcomes)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="960" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="inspect_e" value="(Inspect emergency outcomes)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1060" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="reject" value="(Reject mission)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="480" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="unresolved" value="(Mark emergency UNRESOLVED)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="740" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="fail_active" value="(Fail active mission)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f4f8fc;strokeColor=#4c78a8;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="990" width="280" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a0" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="manage_agents">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a1" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="manage_facilities">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a2" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="monitor_resources">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a3" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="report">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a4" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="submit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a5" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="execute">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a6" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="advance">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a7" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="monitor_env">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a8" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="inspect_m">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_a9" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor1" target="inspect_e">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_b0" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor2" target="trigger">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="uc_b1" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="actor2" target="inspect_e">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="include0" value="«include»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="submit" target="assign">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="include1" value="«include»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="submit" target="execute">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="include2" value="«include»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="execute" target="monitor_env">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="include3" value="«include»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="trigger" target="handle">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="extend0" value="«extend»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="reject" target="submit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="extend1" value="«extend»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="unresolved" target="handle">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="extend2" value="«extend»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="fail_active" target="execute">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-31T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="object-diagram" name="Object Diagram">
+    <mxGraphModel dx="1900" dy="1250" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="colony" value="&lt;b&gt;:MarsColony&lt;/b&gt;&lt;br&gt;implements ColonyContext; name=&quot;Ares Base&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="640" y="30" width="520" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="mm" value="&lt;b&gt;missionManager:MissionManager&lt;/b&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="170" width="280" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="rm" value="&lt;b&gt;resourceManager:ResourceManager&lt;/b&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="170" width="280" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="em" value="&lt;b&gt;emergencyManager:EmergencyManager&lt;/b&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="640" y="170" width="320" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="env" value="&lt;b&gt;env:Environment&lt;/b&gt;&lt;br&gt;condition=NORMAL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="990" y="170" width="300" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="&lt;b&gt;s1:Scientist &quot;Ada&quot;&lt;/b&gt;&lt;br&gt;implements Responder&lt;br&gt;location=Facility H1&lt;br&gt;available=true" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="330" width="280" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="rr1" value="&lt;b&gt;rr1:RepairRobot&lt;/b&gt;&lt;br&gt;implements Responder&lt;br&gt;battery=60&lt;br&gt;available=true" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="330" width="280" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="er1" value="&lt;b&gt;er1:ExplorationRover&lt;/b&gt;&lt;br&gt;battery=80&lt;br&gt;available=false" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="640" y="330" width="280" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="h1" value="&lt;b&gt;h1:Habitat&lt;/b&gt;&lt;br&gt;operational=true&lt;br&gt;oxygen=280" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="990" y="330" width="300" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="&lt;b&gt;l1:Laboratory&lt;/b&gt;&lt;br&gt;operational=true" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="330" width="280" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="x1" value="&lt;b&gt;x1:ExplorationMission&lt;/b&gt;&lt;br&gt;state=IN_PROGRESS&lt;br&gt;elapsed=2&lt;br&gt;duration=3&lt;br&gt;assignedAgents={er1}&lt;br&gt;spec: requiresSurfaceAccess=true" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="590" width="500" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="el1" value="&lt;b&gt;el1:OxygenLeakEmergency&lt;/b&gt;&lt;br&gt;type=&quot;OXYGEN_LEAK&quot;&lt;br&gt;status=&quot;RESOLVED&quot;&lt;br&gt;habitatId=&quot;H1&quot;&lt;br&gt;oxygenLostAmount=50&lt;br&gt;dispatchedResponders={s1, rr1}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#546e7a;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="700" y="590" width="650" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="o1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=1;endArrow=none;" edge="1" parent="1" source="colony" target="mm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=1;endArrow=none;" edge="1" parent="1" source="colony" target="rm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=1;endArrow=none;" edge="1" parent="1" source="colony" target="em">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=1;endArrow=none;" edge="1" parent="1" source="colony" target="env">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="colony" target="s1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="colony" target="rr1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="colony" target="er1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="colony" target="h1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="colony" target="l1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o10" value="◇ active" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="mm" target="x1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="em" target="el1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o12" value="◇ assigned" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="x1" target="s1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o13" value="◇ assigned" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="x1" target="er1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o14" value="◇ responder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="el1" target="s1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o15" value="◇ responder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="el1" target="rr1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
