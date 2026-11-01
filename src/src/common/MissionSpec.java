@@ -4,19 +4,7 @@ import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
 
-/**
- * An immutable description of what a job demands of an agent: a name and the capabilities
- * required.
- *
- * <p>This is the thing an agent is asked about: {@code agent.canPerform(spec)}. It is a plain
- * value class rather than an interface so that {@code agents} can accept it without importing
- * {@code missions}; the dependency arrow therefore points only one way
- * ({@code missions -> agents -> common}).</p>
- *
- * <p><b>Semantics:</b> a spec is satisfied by an agent that has <i>all</i> of its capabilities
- * ({@link #isSatisfiedBy}). A mission with several parts (a vehicle and a scientist) hands each
- * agent the spec for the part it would play, so "all of" is always the right test.</p>
- */
+
 public final class MissionSpec {
 
     private final String name;
@@ -33,7 +21,6 @@ public final class MissionSpec {
         this.requiredCapabilities = Collections.unmodifiableSet(EnumSet.copyOf(requiredCapabilities));
     }
 
-    /** Convenience: {@code MissionSpec.of("vehicle", SURFACE_TRAVEL)}. */
     public static MissionSpec of(String name, Capability first, Capability... rest) {
         EnumSet<Capability> set = EnumSet.of(first, rest);
         return new MissionSpec(name, set);
@@ -43,7 +30,6 @@ public final class MissionSpec {
         return name;
     }
 
-    /** Unmodifiable. */
     public Set<Capability> getRequiredCapabilities() {
         return requiredCapabilities;
     }
@@ -52,10 +38,6 @@ public final class MissionSpec {
         return requiredCapabilities.contains(capability);
     }
 
-    /**
-     * True if the offered capabilities cover everything this spec requires. Agents implement
-     * {@code canPerform} with this: {@code return spec.isSatisfiedBy(capabilities);}
-     */
     public boolean isSatisfiedBy(Set<Capability> offered) {
         return offered != null && offered.containsAll(requiredCapabilities);
     }

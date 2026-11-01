@@ -38,7 +38,7 @@ public abstract class Mission implements EnvironmentSensitive {
     private int elapsed;
     private String failureReason;
     private boolean agentsReserved;
-    private final Map<Agent, Location> startLocations = new LinkedHashMap<>();
+    private final List<Location> startLocations = new ArrayList<>();
     private final List<String> eventLog = new ArrayList<>();
 
 
@@ -86,14 +86,12 @@ public abstract class Mission implements EnvironmentSensitive {
 
     public int getDuration() { return duration; }
 
-    /** Time units of work completed so far. */
     public int getElapsed() { return elapsed; }
 
     public int getRemaining() { return duration - elapsed; }
 
     public MissionState getState() { return state; }
 
-    /** Why the mission failed, or {@code null} if it has not failed. */
     public String getFailureReason() { return failureReason; }
 
     public List<Agent> getAgents() { return agents; }
@@ -123,29 +121,20 @@ public abstract class Mission implements EnvironmentSensitive {
     //  Subclass hooks
     // =====================================================================
 
-    /**
-     * Mission-specific conditions that must hold when the mission starts <i>and on every
-     * time unit while it runs</i> (equipment still working, laboratory still operational...).
-     * A failure here while IN_PROGRESS is how "equipment failure" fails a mission.
-     */
+
     protected OperationResult checkMissionConditions() {
         return OperationResult.success("No mission-specific conditions.");
     }
 
-    /** Where the work happens. Agents are moved there at start. {@code null} = they stay put. */
     protected Location getWorkSite() { return null; }
 
-    /** Applies the mission's outcome when it completes (repair the target, recover the casualty...). */
     protected void onCompleted() { }
 
     // =====================================================================
     //  Validation (package-private: called by the MissionManager)
     // =====================================================================
 
-    /**
-     * Submission-time check of the agents: every agent must fit a role, every role must be
-     * filled, and every agent must be available.
-     */
+
     OperationResult checkAgents() {
         int[] filled = new int[roles.size()];
         Set<Agent> seen = new HashSet<>();
@@ -210,7 +199,6 @@ public abstract class Mission implements EnvironmentSensitive {
     //  Lifecycle transitions (package-private: driven only by the MissionManager)
     // =====================================================================
 
-    /** PENDING -> ASSIGNED. Reserves every agent. */
     void accept() {
         transitionTo(MissionState.ASSIGNED, "accepted");
         for (Agent agent : agents) {
@@ -219,23 +207,18 @@ public abstract class Mission implements EnvironmentSensitive {
         agentsReserved = true;
     }
 
-    /** ASSIGNED -> IN_PROGRESS. Remembers where agents were, then moves them to the work site. */
     void begin() {
         transitionTo(MissionState.IN_PROGRESS, "started");
         Location site = getWorkSite();
         for (Agent agent : agents) {
-            startLocations.put(agent, agent.getLocation());
+            startLocations.add(agent.getLocation());
             if (site != null) {
                 agent.setLocation(site);
             }
         }
     }
 
-    /**
-     * Advances the mission by exactly one time unit.
-     *
-     * @return true when the required duration has been reached
-     */
+
     boolean advanceOneUnit() {
         if (state != MissionState.IN_PROGRESS) {
             throw new IllegalStateException("Mission " + id + " is " + state + "; only IN_PROGRESS missions progress.");
@@ -265,12 +248,13 @@ public abstract class Mission implements EnvironmentSensitive {
         if (!agentsReserved) {
             return;
         }
-        for (Agent agent : agents) {
-            Location origin = startLocations.get(agent);
-            if (origin != null && agent.isUsable()) {
-                agent.setLocation(origin);
+        boolean hasBegun = !startLocations.isEmpty();   // a mission that failed while ASSIGNED never moved anyone
+        for (int i = 0; i < agents.size(); i++) {
+            Agent agent = agents.get(i);
+            if (hasBegun && agent.isUsable()) {
+                agent.setLocation(startLocations.get(i));
             }
-            agent.setAvailable(true);
+            agent.release();
         }
         agentsReserved = false;
     }
@@ -318,14 +302,6 @@ public abstract class Mission implements EnvironmentSensitive {
         private final int min;
         private final int max;
 
-        /**
-         * @param name          e.g. "vehicle"
-         * @param kind          {@code Human.class}, {@code Robot.class} or {@code Agent.class}
-         * @param min           how many agents must fill the role
-         * @param max           how many may fill it ({@link #UNLIMITED} for no cap)
-         * @param requiredSkill a Human skill the agent must have, or {@code null}
-         * @param capabilities  what the agent must be able to do (at least one)
-         */
         public Role(String name, Class<? extends Agent> kind, int min, int max,
                     String requiredSkill, Capability... capabilities) {
             if (capabilities == null || capabilities.length == 0) {
@@ -351,7 +327,6 @@ public abstract class Mission implements EnvironmentSensitive {
 
         public MissionSpec getSpec() { return spec; }
 
-        /** Does this agent fit the role? Asks the agent; never checks a concrete type. */
         boolean accepts(Agent agent) {
             if (!kind.isInstance(agent)) {
                 return false;

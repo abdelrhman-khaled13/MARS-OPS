@@ -1,18 +1,20 @@
 package agents;
 
+import common.Capability;
+import common.Location;
+
+import java.util.EnumSet;
+import java.util.Set;
+
 public class Scientist extends CrewMember {
 
-    public Scientist(int id, String name, String location) {
+    public Scientist(int id, String name, Location location) {
         super(id, name, location);
     }
 
     @Override
-    public boolean canPerform(String missionType) {
-        return missionType.equals("RESEARCH") || missionType.equals("EXPLORATION");
+    public Set<Capability> getCapabilities() {
+        return EnumSet.of(Capability.SCIENTIFIC_RESEARCH);
     }
 
-    @Override
-    public boolean canHandle(String emergencyType) {
-        return false;
-    }
 }

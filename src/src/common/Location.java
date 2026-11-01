@@ -2,12 +2,6 @@ package common;
 
 import java.util.Objects;
 
-/**
- * Where an agent is: on the Martian surface, or inside a facility (spec 9.1).
- *
- * <p>Immutable value. A facility is referred to by its id (a String), never by reference, so
- * {@code common} does not depend on the facilities package and no dependency cycle appears.</p>
- */
 public final class Location {
 
     private static final Location SURFACE = new Location(null);
@@ -18,12 +12,10 @@ public final class Location {
         this.facilityId = facilityId;
     }
 
-    /** The Martian surface (outside every facility). */
     public static Location surface() {
         return SURFACE;
     }
 
-    /** Inside the facility with the given id. */
     public static Location inFacility(String facilityId) {
         if (facilityId == null || facilityId.trim().isEmpty()) {
             throw new IllegalArgumentException("A facility location needs a facility id.");
@@ -58,10 +50,6 @@ public final class Location {
         return Objects.equals(facilityId, ((Location) o).facilityId);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(facilityId);
-    }
 
     @Override
     public String toString() {

@@ -2,13 +2,7 @@ package common;
 
 import java.util.Objects;
 
-/**
- * An immutable "I need this much of this resource" value, e.g. 2 SPARE_PARTS.
- *
- * <p>Missions and emergencies describe what they need with these; the ResourceManager decides
- * whether the colony can supply them. The quantity is always strictly positive, so a request
- * can never be used to add resources by accident.</p>
- */
+
 public final class ResourceRequest {
 
     private final ResourceType type;

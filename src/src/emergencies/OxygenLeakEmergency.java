@@ -1,5 +1,10 @@
 package emergencies;
 
+import common.ColonyContext;
+import common.EmergencyType;
+import common.Responder;
+import common.ResourceType;
+
 import java.util.List;
 
 public class OxygenLeakEmergency extends Emergency {
@@ -16,13 +21,13 @@ public class OxygenLeakEmergency extends Emergency {
 
     @Override
     public boolean handle(List<Responder> colonyAgents, ColonyContext colony) {
-        colony.deductFacilityResource(habitatId, "OXYGEN", oxygenLostAmount);
+        colony.deductFacilityResource(habitatId, ResourceType.OXYGEN, oxygenLostAmount);
 
         Responder humanResponder = null;
         Responder robotResponder = null;
 
         for (Responder agent : colonyAgents) {
-            if (agent.isAvailable() && agent.canHandleEmergency(TYPE_OXYGEN_LEAK)) {
+            if (agent.isAvailable() && agent.canHandleEmergency(EmergencyType.valueOf(getType()))) {
                 if (humanResponder == null && agent.isHuman()) {
                     humanResponder = agent;
                 } else if (robotResponder == null && agent.isRobotic()) {
@@ -38,13 +43,13 @@ public class OxygenLeakEmergency extends Emergency {
         }
 
         // Check required spare parts resource
-        if (!colony.hasResource("SPARE_PARTS", requiredSpareParts)) {
+        if (!colony.hasResource(ResourceType.SPARE_PARTS, requiredSpareParts)) {
             applyUnresolvedPenalty(colony, "Insufficient spare parts for repair (" + requiredSpareParts + " required).");
             return false;
         }
 
         // Repair leak and dispatch responders
-        colony.consumeResource("SPARE_PARTS", requiredSpareParts);
+        colony.consumeResource(ResourceType.SPARE_PARTS, requiredSpareParts);
         addDispatchedResponder(humanResponder);
         addDispatchedResponder(robotResponder);
         setResolved();
@@ -52,7 +57,7 @@ public class OxygenLeakEmergency extends Emergency {
     }
 
     private void applyUnresolvedPenalty(ColonyContext colony, String reason) {
-        colony.deductFacilityResource(habitatId, "OXYGEN", oxygenLostAmount);
+        colony.deductFacilityResource(habitatId, ResourceType.OXYGEN, oxygenLostAmount);
         setUnresolved(reason);
     }
 }

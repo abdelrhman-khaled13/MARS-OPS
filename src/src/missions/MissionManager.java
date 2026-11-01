@@ -62,11 +62,9 @@ public class MissionManager {
             return reject(mission, conditionCheck.getMessage());
         }
 
-        if (!mission.getResourceRequirements().isEmpty()) {
-            OperationResult consumption = resourceManager.consume(mission.getResourceRequirements());
-            if (!consumption.isSuccess()) {
-                return reject(mission, consumption.getMessage());
-            }
+        if (!mission.getResourceRequirements().isEmpty()
+                && !resourceManager.canConsume(mission.getResourceRequirements())) {
+            return reject(mission, "Mission resource requirements cannot be met.");
         }
 
         mission.accept();
@@ -112,6 +110,14 @@ public class MissionManager {
         }
         Mission mission = activeMission;
         if (mission.getState() == MissionState.ASSIGNED) {
+            if (!mission.getResourceRequirements().isEmpty()) {
+                OperationResult consumption = resourceManager.consume(mission.getResourceRequirements());
+                if (!consumption.isSuccess()) {
+                    failActive("Resources became unavailable before mission start: "
+                            + consumption.getMessage());
+                    return;
+                }
+            }
             mission.begin();
         }
         if (mission.advanceOneUnit()) {

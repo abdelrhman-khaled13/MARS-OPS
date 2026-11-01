@@ -1,5 +1,9 @@
 package emergencies;
 
+import common.ColonyContext;
+import common.Location;
+import common.Responder;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -53,9 +57,17 @@ public abstract class Emergency {
 
     protected void addDispatchedResponder(Responder responder) {
         if (responder != null) {
-            responder.setLocation(this.location);
+            responder.setLocation(toLocation(this.location));
             this.dispatchedResponders.add(responder);
         }
+    }
+
+    private static Location toLocation(String location) {
+        if (location == null || location.trim().equalsIgnoreCase("surface")
+                || location.trim().equalsIgnoreCase("Martian surface")) {
+            return Location.surface();
+        }
+        return Location.inFacility(location.trim());
     }
 
     public abstract boolean handle(List<Responder> colonyAgents, ColonyContext colony);

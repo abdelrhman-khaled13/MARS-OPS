@@ -1,5 +1,7 @@
 package agents;
 
+import common.Location;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,7 @@ public abstract class CrewMember extends Agent {
     private final List<String> skills;
     private int fatigue;
 
-    public CrewMember(int id, String name, String location) {
+    public CrewMember(int id, String name, Location location) {
         super(id, name, location);
         this.skills = new ArrayList<>();
         this.fatigue = 0;
@@ -37,6 +39,16 @@ public abstract class CrewMember extends Agent {
 
     public List<String> getSkills() {
         return new ArrayList<>(skills);
+    }
+
+    @Override
+    public boolean isHuman() {
+        return true;
+    }
+
+    @Override
+    public boolean isRobotic() {
+        return false;
     }
 
     @Override

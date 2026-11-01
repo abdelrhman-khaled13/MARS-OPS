@@ -1,5 +1,10 @@
 package emergencies;
 
+import common.ColonyContext;
+import common.EmergencyType;
+import common.Responder;
+import common.ResourceType;
+
 import java.util.List;
 
 public class MedicalEmergency extends Emergency {
@@ -25,7 +30,7 @@ public class MedicalEmergency extends Emergency {
 
         Responder medicalOfficer = null;
         for (Responder agent : colonyAgents) {
-            if (agent.isAvailable() && agent.canHandleEmergency(TYPE_MEDICAL_EMERGENCY)) {
+            if (agent.isAvailable() && agent.canHandleEmergency(EmergencyType.valueOf(getType()))) {
                 medicalOfficer = agent;
                 break;
             }
@@ -36,12 +41,12 @@ public class MedicalEmergency extends Emergency {
             return false;
         }
 
-        if (!colony.hasResource("MEDICAL_SUPPLIES", requiredMedicalSupplies)) {
+        if (!colony.hasResource(ResourceType.MEDICAL_SUPPLIES, requiredMedicalSupplies)) {
             setUnresolved("Insufficient medical supplies.");
             return false;
         }
 
-        colony.consumeResource("MEDICAL_SUPPLIES", requiredMedicalSupplies);
+        colony.consumeResource(ResourceType.MEDICAL_SUPPLIES, requiredMedicalSupplies);
         double currentHealth = colony.getEntityHealth(patientId);
         colony.setEntityHealth(patientId, Math.min(100.0, currentHealth + healthRestoredAmount));
         addDispatchedResponder(medicalOfficer);

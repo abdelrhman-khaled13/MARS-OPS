@@ -1,9 +1,11 @@
 package agents;
 
+import common.Location;
+
 public abstract class Robot extends Agent {
     private int battery;
 
-    public Robot(int id, String name, String location, int battery) {
+    public Robot(int id, String name, Location location, int battery) {
         super(id, name, location);
         this.battery = Math.max(0, Math.min(100, battery));
     }
@@ -26,6 +28,16 @@ public abstract class Robot extends Agent {
 
     public int getBattery() {
         return battery;
+    }
+
+    @Override
+    public boolean isHuman() {
+        return false;
+    }
+
+    @Override
+    public boolean isRobotic() {
+        return true;
     }
 
     @Override

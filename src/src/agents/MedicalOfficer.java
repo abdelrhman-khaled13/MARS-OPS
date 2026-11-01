@@ -1,21 +1,22 @@
 package agents;
 
+import common.Capability;
+import common.Location;
+
+import java.util.EnumSet;
+import java.util.Set;
+
 public class MedicalOfficer extends CrewMember {
 
-    public MedicalOfficer(int id, String name, String location) {
+    public MedicalOfficer(int id, String name, Location location) {
         super(id, name, location);
     }
 
     @Override
-    public boolean canPerform(String missionType) {
-        return missionType.equals("RESCUE");
+    public Set<Capability> getCapabilities() {
+        return EnumSet.of(Capability.MEDICAL_TREATMENT, Capability.FIRE_RESPONSE, Capability.RESCUE);
     }
 
-    @Override
-    public boolean canHandle(String emergencyType) {
-        return emergencyType.equals("MEDICAL_EMERGENCY")
-                || emergencyType.equals("FIRE");
-    }
 
     public void treat(CrewMember patient, int healAmount) {
         patient.setHealth(patient.getHealth() + healAmount);

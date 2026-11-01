@@ -1,11 +1,6 @@
 package common;
 
-/**
- * Immutable outcome of an operation that can be refused: success, or failure with a reason.
- *
- * <p>The system never fails silently (spec 5.1, 6.2): every refusal returns a failure whose
- * message is the clear reason, and callers decide what to print or record.</p>
- */
+
 public final class OperationResult {
 
     private final boolean success;
@@ -40,7 +35,6 @@ public final class OperationResult {
         return !success;
     }
 
-    /** For a failure this is the reason; for a success it is an informational note. */
     public String getMessage() {
         return message;
     }

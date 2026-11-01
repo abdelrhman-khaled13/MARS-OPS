@@ -1,13 +1,21 @@
 package agents;
 
-public abstract class Agent {
+import common.Capability;
+import common.EmergencyType;
+import common.Location;
+import common.MissionSpec;
+import common.Responder;
+
+import java.util.Set;
+
+public abstract class Agent implements Responder {
     private final int id;
     private final String name;
-    private String location;
+    private Location location;
     private int health;
     private boolean onMission;
 
-    public Agent(int id, String name, String location) {
+    public Agent(int id, String name, Location location) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -15,9 +23,27 @@ public abstract class Agent {
         this.onMission = false;
     }
 
-    public abstract boolean canPerform(String missionType);
+    public abstract Set<Capability> getCapabilities();
 
-    public abstract boolean canHandle(String emergencyType);
+    public boolean canPerform(MissionSpec spec) {
+        return spec != null && spec.isSatisfiedBy(getCapabilities());
+    }
+
+    @Override
+    public boolean canHandleEmergency(EmergencyType type) {
+        return type != null && getCapabilities().containsAll(type.getRequiredCapabilities());
+    }
+
+    @Override
+    public boolean isOnActiveMission() {
+        return onMission;
+    }
+
+    @Override
+    public abstract boolean isHuman();
+
+    @Override
+    public abstract boolean isRobotic();
 
     public boolean isUsable() {
         return health > 0;
@@ -39,7 +65,7 @@ public abstract class Agent {
         onMission = false;
     }
 
-    public void moveTo(String newLocation) {
+    public void moveTo(Location newLocation) {
         this.location = newLocation;
     }
 
@@ -47,15 +73,22 @@ public abstract class Agent {
         this.health = Math.max(0, Math.min(100, health));
     }
 
-    public int getId() {
-        return id;
+    public void setAvailable(boolean available) {
+        this.onMission = !available;
+    }
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public String getId() {
+        return Integer.toString(id);
     }
 
     public String getName() {
         return name;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 

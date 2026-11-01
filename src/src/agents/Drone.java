@@ -1,18 +1,20 @@
 package agents;
 
+import common.Capability;
+import common.Location;
+
+import java.util.EnumSet;
+import java.util.Set;
+
 public class Drone extends Robot {
 
-    public Drone(int id, String name, String location, int battery) {
+    public Drone(int id, String name, Location location, int battery) {
         super(id, name, location, battery);
     }
 
     @Override
-    public boolean canPerform(String missionType) {
-        return missionType.equals("EXPLORATION") || missionType.equals("RESCUE");
+    public Set<Capability> getCapabilities() {
+        return EnumSet.of(Capability.AERIAL_RECONNAISSANCE);
     }
 
-    @Override
-    public boolean canHandle(String emergencyType) {
-        return false;
-    }
 }

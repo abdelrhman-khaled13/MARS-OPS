@@ -1,6 +1,5 @@
 package common;
 
-/** The limited resources of the colony (spec section 5). */
 public enum ResourceType {
     OXYGEN("Oxygen"),
     WATER("Water"),

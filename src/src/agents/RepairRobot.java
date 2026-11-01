@@ -1,20 +1,20 @@
 package agents;
 
+import common.Capability;
+import common.Location;
+
+import java.util.EnumSet;
+import java.util.Set;
+
 public class RepairRobot extends Robot {
 
-    public RepairRobot(int id, String name, String location, int battery) {
+    public RepairRobot(int id, String name, Location location, int battery) {
         super(id, name, location, battery);
     }
 
     @Override
-    public boolean canPerform(String missionType) {
-        return missionType.equals("REPAIR");
+    public Set<Capability> getCapabilities() {
+        return EnumSet.of(Capability.REPAIR, Capability.FACILITY_OPERATION, Capability.FIRE_RESPONSE);
     }
 
-    @Override
-    public boolean canHandle(String emergencyType) {
-        return emergencyType.equals("OXYGEN_LEAK")
-                || emergencyType.equals("FIRE")
-                || emergencyType.equals("ROVER_BREAKDOWN");
-    }
 }

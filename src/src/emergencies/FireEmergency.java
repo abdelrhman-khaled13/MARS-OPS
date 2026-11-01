@@ -1,5 +1,10 @@
 package emergencies;
 
+import common.ColonyContext;
+import common.EmergencyType;
+import common.Responder;
+import common.ResourceType;
+
 import java.util.List;
 
 public class FireEmergency extends Emergency {
@@ -15,15 +20,16 @@ public class FireEmergency extends Emergency {
     @Override
     public boolean handle(List<Responder> colonyAgents, ColonyContext colony) {
         colony.setFacilityOperational(labId, false);
+        colony.damageFacilityEquipment(labId);
 
         Responder fireResponder = null;
         Responder medicalOfficer = null;
 
         for (Responder agent : colonyAgents) {
             if (agent.isAvailable()) {
-                if (fireResponder == null && agent.canHandleEmergency(TYPE_FIRE)) {
+                if (fireResponder == null && agent.canHandleEmergency(EmergencyType.valueOf(getType()))) {
                     fireResponder = agent;
-                } else if (medicalOfficer == null && agent.canHandleEmergency(TYPE_MEDICAL_EMERGENCY)) {
+                } else if (medicalOfficer == null && agent.canHandleEmergency(EmergencyType.MEDICAL_EMERGENCY)) {
                     medicalOfficer = agent;
                 }
             }
@@ -34,12 +40,12 @@ public class FireEmergency extends Emergency {
             return false;
         }
 
-        if (!colony.hasResource("WATER", requiredWater)) {
+        if (!colony.hasResource(ResourceType.WATER, requiredWater)) {
             setUnresolved("Insufficient water resources for fire suppression.");
             return false;
         }
 
-        colony.consumeResource("WATER", requiredWater);
+        colony.consumeResource(ResourceType.WATER, requiredWater);
         addDispatchedResponder(fireResponder);
         addDispatchedResponder(medicalOfficer);
         colony.setFacilityOperational(labId, true);

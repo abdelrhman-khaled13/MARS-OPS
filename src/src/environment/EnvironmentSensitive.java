@@ -2,8 +2,7 @@ package environment;
 
 
 public interface EnvironmentSensitive {
-
-    /** Human-readable name used in messages, e.g. "Exploration Mission". */
+    /** Returns the name of the operation. */
     String getOperationName();
 
     /** True if the operation takes place on the Martian surface (blocked by dust storms). */

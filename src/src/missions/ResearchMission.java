@@ -13,13 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Scientists perform an experiment in a laboratory (spec section 6).
- *
- * <p>Needs scientists with a particular skill, an operational laboratory, working scientific
- * equipment and enough resources. If the laboratory stops being operational while the
- * experiment runs (e.g. after a fire, spec 9.3) the mission fails on the next check.</p>
- */
+
 public class ResearchMission extends Mission {
 
     public static final int DEFAULT_DURATION = 4;

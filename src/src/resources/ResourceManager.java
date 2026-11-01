@@ -1,93 +1,113 @@
-
 package resources;
-import common.*;
-import facilities.Facility;
-import java.util.*;
 
+import common.OperationResult;
+import common.ResourceRequest;
+import common.ResourceType;
+import facilities.Facility;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class ResourceManager {
     private final List<Facility> facilities;
 
     public ResourceManager(List<Facility> facilities) {
-        this.facilities = facilities;
+        this.facilities = Objects.requireNonNull(facilities, "facilities");
     }
 
-    
     public int getTotal(ResourceType type) {
+        Objects.requireNonNull(type, "type");
         int total = 0;
         for (Facility facility : facilities) {
             if (facility.isOperational()) {
-                total += facility.getResource(type);
+                int amount = facility.getResource(type);
+                if (amount > Integer.MAX_VALUE - total) {
+                    return Integer.MAX_VALUE;
+                }
+                total += amount;
             }
         }
         return total;
     }
 
-    
-    public boolean canConsume(ResourceRequest request) {
-        if (request == null || request.getRequirements() == null) {
-            return true;
+    public boolean canConsume(List<ResourceRequest> requests) {
+        final Map<ResourceType, Integer> totals;
+        try {
+            totals = aggregate(requests);
+        } catch (IllegalArgumentException | ArithmeticException e) {
+            return false;
         }
 
-        for (Map.Entry<ResourceType, Integer> entry : request.getRequirements().entrySet()) {
-            ResourceType type = entry.getKey();
-            int needed = entry.getValue();
-            if (getTotal(type) < needed) {
+        for (Map.Entry<ResourceType, Integer> entry : totals.entrySet()) {
+            if (getTotal(entry.getKey()) < entry.getValue()) {
                 return false;
             }
         }
         return true;
     }
 
-    /**
-     * Atomically consumes resources across operational facilities.
-     * If any requested resource cannot be fully supplied, NO resources are deducted.
-     */
-    public OperationResult consume(ResourceRequest request) {
-        if (request == null || request.getRequirements() == null || request.getRequirements().isEmpty()) {
-            return OperationResult.ok();
+    public OperationResult consume(List<ResourceRequest> requests) {
+        final Map<ResourceType, Integer> totals;
+        try {
+            totals = aggregate(requests);
+        } catch (IllegalArgumentException e) {
+            return OperationResult.failure(e.getMessage());
+        } catch (ArithmeticException e) {
+            return OperationResult.failure("Combined resource quantity is too large.");
         }
 
-        //   (All-or-Nothing check)
-        for (Map.Entry<ResourceType, Integer> entry : request.getRequirements().entrySet()) {
-            ResourceType type = entry.getKey();
-            int needed = entry.getValue();
-            int available = getTotal(type);
-
-            if (available < needed) {
-                return OperationResult.fail(
-                    "Insufficient " + type + ": required " + needed + ", available " + available
-                );
+        // Validate every resource before changing any facility inventory.
+        for (Map.Entry<ResourceType, Integer> entry : totals.entrySet()) {
+            int available = getTotal(entry.getKey());
+            if (available < entry.getValue()) {
+                return OperationResult.failure("Insufficient " + entry.getKey()
+                        + ": required " + entry.getValue() + ", available " + available + ".");
             }
         }
 
-        //   Collect & Sort Operational Facilities 
         List<Facility> operationalFacilities = new ArrayList<>();
         for (Facility facility : facilities) {
             if (facility.isOperational()) {
                 operationalFacilities.add(facility);
             }
         }
-        // Deterministic Allocation Policy: order by facilityId ascending
-        operationalFacilities.sort(Comparator.comparing(Facility::getId));
+        operationalFacilities.sort(Comparator.comparing(Facility::getId,
+                Comparator.nullsFirst(String::compareTo)));
 
-        // --- PHASE 3: Deduction across multiple facilities ---
-        for (Map.Entry<ResourceType, Integer> entry : request.getRequirements().entrySet()) {
-            ResourceType type = entry.getKey();
-            int remainingToDeduct = entry.getValue();
-
+        for (Map.Entry<ResourceType, Integer> entry : totals.entrySet()) {
+            int remaining = entry.getValue();
             for (Facility facility : operationalFacilities) {
-                if (remainingToDeduct == 0) break;
-
-                int currentInFacility = facility.getResource(type);
-                if (currentInFacility > 0) {
-                    int deductAmount = Math.min(currentInFacility, remainingToDeduct);
-                    facility.deductResource(type, deductAmount);
-                    remainingToDeduct -= deductAmount;
+                if (remaining == 0) {
+                    break;
+                }
+                int inFacility = facility.getResource(entry.getKey());
+                if (inFacility > 0) {
+                    int amount = Math.min(inFacility, remaining);
+                    facility.deductResource(entry.getKey(), amount);
+                    remaining -= amount;
                 }
             }
         }
+        return OperationResult.success();
+    }
 
-        return OperationResult.ok();
+    private Map<ResourceType, Integer> aggregate(List<ResourceRequest> requests) {
+        Map<ResourceType, Integer> totals = new LinkedHashMap<>();
+        if (requests == null) {
+            return totals;
+        }
+        for (ResourceRequest request : requests) {
+            if (request == null) {
+                throw new IllegalArgumentException("A resource request list cannot contain null.");
+            }
+            ResourceType type = request.getType();
+            int quantity = request.getQuantity();
+            totals.put(type, Math.addExact(totals.getOrDefault(type, 0), quantity));
+        }
+        return totals;
     }
 }
