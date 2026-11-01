@@ -19,7 +19,6 @@ public final class OperationResult {
         return new OperationResult(true, "OK");
     }
 
-    /** @param reason must say why; a failure without a reason is a bug */
     public static OperationResult failure(String reason) {
         if (reason == null || reason.trim().isEmpty()) {
             throw new IllegalArgumentException("A failure must carry a reason.");

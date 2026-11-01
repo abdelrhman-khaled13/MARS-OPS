@@ -35,7 +35,6 @@ public class ExplorationMission extends Mission {
                 : Collections.unmodifiableList(new ArrayList<>(requiredEquipment));
     }
 
-    /** Convenience: default duration (3), default battery floor, no specific skill. */
     public ExplorationMission(String region, List<Agent> agents,
                               List<Equipment> requiredEquipment, List<ResourceRequest> resources) {
         this(region, DEFAULT_DURATION, agents, requiredEquipment, resources, DEFAULT_MINIMUM_BATTERY, null);
@@ -54,11 +53,9 @@ public class ExplorationMission extends Mission {
     @Override
     public String getOperationName() { return "Exploration Mission"; }
 
-    /** Exploration happens on the surface: dust storms block and fail it. */
     @Override
     public boolean requiresSurfaceAccess() { return true; }
 
-    /** All required equipment must work at the start and throughout (equipment failure fails the mission). */
     @Override
     protected OperationResult checkMissionConditions() {
         for (Equipment equipment : requiredEquipment) {
@@ -69,7 +66,6 @@ public class ExplorationMission extends Mission {
         return OperationResult.success("Required equipment is operational.");
     }
 
-    /** The exploration team is out on the surface while the mission runs (spec 9.1.2). */
     @Override
     protected Location getWorkSite() { return Location.surface(); }
 }

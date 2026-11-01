@@ -22,15 +22,7 @@ public class ResearchMission extends Mission {
     private final Laboratory laboratory;
     private final List<Equipment> scientificEquipment;
 
-    /**
-     * @param experiment          name of the experiment
-     * @param duration            time units
-     * @param scientists          the researchers
-     * @param laboratory          the laboratory used (must be operational)
-     * @param scientificEquipment equipment that must be operational (may be empty)
-     * @param resources           colony resources consumed on acceptance (may be empty)
-     * @param requiredSkill       skill every scientist must have, or {@code null}
-     */
+
     public ResearchMission(String experiment, int duration, List<Agent> scientists, Laboratory laboratory,
                            List<Equipment> scientificEquipment, List<ResourceRequest> resources,
                            String requiredSkill) {
@@ -45,7 +37,6 @@ public class ResearchMission extends Mission {
                 : Collections.unmodifiableList(new ArrayList<>(scientificEquipment));
     }
 
-    /** Convenience: default duration (4), no specific skill. */
     public ResearchMission(String experiment, List<Agent> scientists, Laboratory laboratory,
                            List<Equipment> scientificEquipment, List<ResourceRequest> resources) {
         this(experiment, DEFAULT_DURATION, scientists, laboratory, scientificEquipment, resources, null);

@@ -228,7 +228,6 @@ public abstract class Mission implements EnvironmentSensitive {
         return elapsed >= duration;
     }
 
-    /** IN_PROGRESS -> COMPLETED. Applies the outcome, then releases the agents. */
     void complete() {
         transitionTo(MissionState.COMPLETED, "duration reached");
         onCompleted();

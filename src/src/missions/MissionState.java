@@ -21,12 +21,10 @@ public enum MissionState {
         }
     }
 
-    /** ASSIGNED or IN_PROGRESS: the mission holds its agents and occupies the single active slot. */
     public boolean isActive() {
         return this == ASSIGNED || this == IN_PROGRESS;
     }
 
-    /** COMPLETED or FAILED. */
     public boolean isFinal() {
         return this == COMPLETED || this == FAILED;
     }

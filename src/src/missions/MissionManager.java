@@ -81,7 +81,6 @@ public class MissionManager {
     //  Time
     // =====================================================================
 
-    /** Advances all missions by {@code units} time units (one at a time). */
     public void advanceTime(int units) {
         if (units < 0) {
             throw new IllegalArgumentException("Cannot advance time by a negative amount: " + units);
@@ -95,14 +94,7 @@ public class MissionManager {
         advanceTime(1);
     }
 
-    /**
-     * One time unit for the active mission:
-     * <ol>
-     *   <li>re-check everything that could stop it (environment, agents, battery, equipment);</li>
-     *   <li>if it is ASSIGNED, start it (&rarr; IN_PROGRESS); the starting unit counts as its first;</li>
-     *   <li>advance it by one unit; when the duration is reached it COMPLETES.</li>
-     * </ol>
-     */
+
     private void tick() {
         reevaluateActiveMission();
         if (activeMission == null) {
@@ -130,13 +122,7 @@ public class MissionManager {
     //  Reacting to the outside world
     // =====================================================================
 
-    /**
-     * Re-checks the active mission against the environment and its own conditions and fails
-     * it if it can no longer proceed. Runs automatically on every time unit and whenever the
-     * environment changes. Other packages should call it right after they change something a
-     * mission depends on (e.g. a fire makes the laboratory unavailable, a rover breaks down,
-     * equipment is damaged). <b>Mark the agent / facility as damaged first, then call this.</b>
-     */
+
     public void reevaluateActiveMission() {
         if (activeMission == null) {
             return;
@@ -157,7 +143,6 @@ public class MissionManager {
         }
     }
 
-    /** Fails the active mission for a reason decided elsewhere. */
     public OperationResult failActiveMission(String reason) {
         if (activeMission == null) {
             return OperationResult.failure("There is no active mission.");
@@ -185,12 +170,10 @@ public class MissionManager {
         return Optional.ofNullable(activeMission);
     }
 
-    /** True if the agent belongs to the active mission (emergency responders must not). */
     public boolean isInvolvedInActiveMission(Agent agent) {
         return activeMission != null && activeMission.involves(agent);
     }
 
-    /** Every mission ever submitted, rejected ones included, oldest first. */
     public List<Mission> getMissions() {
         return Collections.unmodifiableList(missions);
     }
@@ -205,7 +188,6 @@ public class MissionManager {
         return result;
     }
 
-    /** Text block for the colony status report. */
     public String getStatusReport() {
         StringBuilder sb = new StringBuilder("Missions: ");
         sb.append(activeMission != null ? 1 : 0).append(" active, ")

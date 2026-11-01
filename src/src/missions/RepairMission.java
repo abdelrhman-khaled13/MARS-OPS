@@ -31,7 +31,6 @@ public class RepairMission extends Mission {
         this.site = site;
     }
 
-    /** Repairs a damaged facility. */
     public static RepairMission forFacility(Facility facility, int duration,
                                             List<Agent> agents, List<ResourceRequest> resources) {
         require(facility, "facility");
@@ -46,7 +45,6 @@ public class RepairMission extends Mission {
         return new RepairMission(equipment.getName(), null, equipment, host, duration, agents, resources);
     }
 
-    /** The example from spec section 5: 2 spare parts and 5 battery units. */
     public static List<ResourceRequest> defaultResources() {
         return Arrays.asList(
                 new ResourceRequest(ResourceType.SPARE_PARTS, 2),
