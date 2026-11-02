@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-31T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="sequence---rover-breakdown-emergency" name="Sequence - Rover Breakdown Emergency">
+    <mxGraphModel dx="2200" dy="1500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="p0" value="Caller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="50" y="40" width="330" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life0" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="215" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="MarsColony" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="330" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life1" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="565" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="EmergencyManager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="750" y="40" width="330" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life2" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="915" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="RoverBreakdownEmergency" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="40" width="330" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life3" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="Responder(s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="40" width="330" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life4" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="1615" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="ColonyContext (self)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2fb;strokeColor=#4c78a8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1800" y="40" width="330" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="life5" value="" style="shape=line;html=1;dashed=1;strokeColor=#7d8b99;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="115" width="1" height="930" as="geometry"/>
+        </mxCell>
+        <mxCell id="a0" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="215" y="145" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b0" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="565" y="145" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m0" value="trigger(rover breakdown)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a0" target="b0">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="565" y="179" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="915" y="179" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m1" value="triggerEmergency(rb, responders, this)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a1" target="b1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="915" y="213" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="213" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="handle(responders, ctx)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a2" target="b2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="247" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b3" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="247" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="setEntityDamaged(roverId, true)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a3" target="b3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="281" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b4" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="281" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="failActiveMission(&quot;Rover breakdown&quot;)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a4" target="b4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="315" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b5" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="315" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m5" value="delegates to MissionManager.failActiveMission" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a5" target="b5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="349" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b6" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1615" y="349" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m6" value="canHandleEmergency(ROVER_BREAKDOWN)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a6" target="b6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a7" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1615" y="383" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b7" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="383" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m7" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a7" target="b7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a8" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="417" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b8" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="417" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m8" value="hasResource(SPARE_PARTS, n)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a8" target="b8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a9" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="451" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b9" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="451" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m9" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a9" target="b9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a10" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="485" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b10" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="485" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m10" value="hasResource(BATTERY_POWER, n)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a10" target="b10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a11" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="519" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b11" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="519" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m11" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a11" target="b11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a12" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="553" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b12" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="553" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m12" value="consumeResource(SPARE_PARTS, n)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a12" target="b12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a13" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="587" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b13" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="587" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m13" value="consumeResource(BATTERY_POWER, n)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a13" target="b13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a14" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="621" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b14" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1965" y="621" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m14" value="setEntityDamaged(roverId, false)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a14" target="b14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a15" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="655" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b15" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1615" y="655" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m15" value="setLocation(repair location)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a15" target="b15">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a16" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="689" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b16" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="689" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m16" value="setResolved()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a16" target="b16">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a17" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="1265" y="723" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="b17" value="" style="ellipse;html=1;fillColor=#ffffff;strokeColor=#ffffff;opacity=0;" vertex="1" parent="1">
+          <mxGeometry x="915" y="723" width="2" height="2" as="geometry"/>
+        </mxCell>
+        <mxCell id="m17" value="true; log to history" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a17" target="b17">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="n0" value="Rover breakdown updates rover damage, fails the active mission through ColonyContext.failActiveMission(String), uses required repair resources, and updates the responder/rover location through Responder.setLocation(Location). ColonyContext has no direct Mission, Robot, or Facility references." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8dc;strokeColor=#c9a227;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1100" width="2060" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

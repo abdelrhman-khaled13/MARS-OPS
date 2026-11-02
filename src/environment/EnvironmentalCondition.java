@@ -23,7 +23,7 @@ public enum EnvironmentalCondition {
     };
 
     private final String displayName;
-    private final String phrase;   // used inside sentences: "... not allowed during <phrase>."
+    private final String phrase;
 
     EnvironmentalCondition(String displayName, String phrase) {
         this.displayName = displayName;

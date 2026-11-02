@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-31T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="emergency-state-machine" name="Emergency State Machine">
+    <mxGraphModel dx="1300" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="650" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ei" value="" style="ellipse;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="60" y="250" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="es_PENDING" value="&lt;b&gt;PENDING&lt;/b&gt;&lt;br&gt;status: String" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf2f8;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="240" y="220" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="es_RESOLVED" value="&lt;b&gt;RESOLVED&lt;/b&gt;&lt;br&gt;status: String" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf2f8;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="640" y="220" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="es_UNRESOLVED" value="&lt;b&gt;UNRESOLVED&lt;/b&gt;&lt;br&gt;status: String" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf2f8;strokeColor=#4c78a8;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="990" y="220" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="et0" value="trigger()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="ei" target="es_PENDING">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="et1" value="handle() succeeds" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="es_PENDING" target="es_RESOLVED">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="et2" value="handle() fails" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="es_PENDING" target="es_UNRESOLVED">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ef1" value="" style="ellipse;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="150" width="28" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="ef2" value="" style="ellipse;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="380" width="28" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="et3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="es_RESOLVED" target="ef1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="et4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="es_UNRESOLVED" target="ef2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="enote" value="Emergency lifecycle is atomic: PENDING transitions directly to RESOLVED or UNRESOLVED. No RESPONDING state; the state value is a String." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8dc;strokeColor=#c9a227;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="180" y="450" width="900" height="100" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
