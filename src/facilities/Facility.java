@@ -15,6 +15,19 @@ public abstract class Facility {
     private final List<Equipment> equipment;     
 
     public Facility(String facilityId, String name, Location location, int capacity) {
+        if (facilityId == null || facilityId.trim().isEmpty()) {
+        throw new IllegalArgumentException("Facility ID is required.");
+    }
+    if (name == null || name.trim().isEmpty()) {
+        throw new IllegalArgumentException("Facility name is required.");
+    }
+    if (location == null) {
+        throw new IllegalArgumentException("Facility location is required.");
+    }
+    if (capacity < 0) {
+        throw new IllegalArgumentException("Capacity cannot be negative.");
+    }
+        
         this.facilityId = facilityId;
         this.name = name;
         this.location = location;
