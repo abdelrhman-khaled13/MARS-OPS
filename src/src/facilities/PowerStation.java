@@ -13,4 +13,10 @@ public class PowerStation extends Facility {
     public double getPowerOutputKw() {
         return powerOutputKw;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | Power Output: " + String.format("%.2f kW", powerOutputKw);
+    }
+    
 }
